@@ -12,9 +12,10 @@ const Title = styled.h3`
     margin-left :2em;
     `
 const Header = () => {
-    return <HeaderWrapper>
+    return( 
+    <HeaderWrapper>
         <Title>Board</Title>
-    </HeaderWrapper>
+    </HeaderWrapper>)
 }
 
 export default Header;
