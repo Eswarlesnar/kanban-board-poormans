@@ -24,5 +24,5 @@ export const useFetchTaskData = (dataSource) => {
     }
     fetchData()
     } , [])
-   return [data , errors , loading]
+   return [data , errors , loading , setData]
 }

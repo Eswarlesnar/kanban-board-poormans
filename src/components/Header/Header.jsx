@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const HeaderWrapper = styled.header`
     padding : 0.01em ; 
-    background : #89ffd2;
+    background : palevioletred;
     display : flex ;
     justify-content : space-between;
     align-items : center;
@@ -18,9 +18,14 @@ const Title = styled.h3`
 const StyledButton = styled.button`
     width : 100px;
     height : 40px;
-    background : aqua;
+    background : papayawhip;
+    margin-right :2.2em;
+    color : palevioletred;
+    font-size : 1.01em;
     text-align : center;
+    border-radius : 5px;
     border : none;`
+
 const Header = () => {
     const [view , setView ] = useState(true)
     const navigate = useNavigate()

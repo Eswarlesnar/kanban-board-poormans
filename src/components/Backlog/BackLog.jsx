@@ -19,6 +19,7 @@ const StyledList = styled.ul`
         min-width :1300px;
         width :100vh;
         height : 40px;
+        background : papayawhip;
         display : grid;
         border-radius : 5px;
         grid-template-columns : 4fr  1.5fr;
@@ -29,7 +30,7 @@ const StyledList = styled.ul`
     }
    `
 const Heading = styled.li`
-   background : gray;
+   background : papayawhip;
    span {
     font-style : bold;
     font-size : 1.3em
@@ -54,7 +55,8 @@ const Backlog = () => {
                 
                 {tasks.map(task => {
                    
-                    return  <li style = {{ background : stateReferenceHash[task.lane].color }}><span>{task.title}</span> <span>{ stateReferenceHash[task.lane].state}</span></li>
+                    return  <li ><span>{task.title}</span> <span>{ stateReferenceHash[task.lane].state} 
+                    </span></li>
                  })}
                 
 
