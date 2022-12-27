@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import {useState , useEffect } from "react"
 import Lane from "../Lane/Lane"
+import { useFetchTaskData } from "../../hooks/useFetchTaskData"
 
 const BoardWrapper = styled.div`
     display : grid;
@@ -17,33 +17,17 @@ const Board = () => {
         {id : 3 , title : "Review"},
         {id : 4 , title : "Done"}
     ]
-
-    const [tasks ,setTasks ]  = useState([])
-    const [errors , setErrors] = useState("")
-
-    useEffect(() =>{
-        const fetchData = async () => {
-            try{
-                const response = await fetch('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks')
-                const result = await response.json()
-                
-                if(result){
-                    setTasks(result)
-                }
-            }catch(e){
-                setErrors(e.message)
-            }
-        }
-        fetchData()
-    } , [])
+    const [tasks ,  errors , loading] = useFetchTaskData('https://my-json-server.typicode.com/PacktPublishing/React-Projects-Second-Edition/tasks')
+    
     return <BoardWrapper>
-         {lanes.map(lane => {
+        {loading === true ? <p>Loading</p> : lanes.map(lane => {
             return <Lane 
              key = {lane.id} 
              title = {lane.title}
              tasks = {tasks.filter(task => task.lane === lane.id)}
              ></Lane>
         })}
+         
     </BoardWrapper>
 
        
